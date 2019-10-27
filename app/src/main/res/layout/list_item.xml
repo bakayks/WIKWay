@@ -8,16 +8,19 @@
         android:layout_width="100dp"
         android:layout_height="120dp"
         android:id="@+id/imageView"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/wikgroup"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"/>
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:contentDescription="@string/todo" />
 
     <LinearLayout
         android:layout_marginTop="15dp"
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginStart="10dp">
         <TextView
             android:id="@+id/name"
             android:layout_width="fill_parent"
@@ -34,5 +37,6 @@
             android:layout_height="wrap_content"
             android:paddingBottom="2dip"
             android:textColor="@color/colorAccent" />
+
     </LinearLayout>
 </LinearLayout>

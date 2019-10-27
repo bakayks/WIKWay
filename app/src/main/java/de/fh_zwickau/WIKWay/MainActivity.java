@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         lv = (ListView) findViewById(R.id.list);
 
         new GetContacts().execute();
-
     }
 
     /**
