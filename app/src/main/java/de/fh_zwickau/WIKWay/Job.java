@@ -3,12 +3,39 @@ package de.fh_zwickau.WIKWay;
 public class Job {
     private String bewerbenkontaktfirma;
     private String bezeichnungderStelle;
+    private String anschreibenZurStelle;
 
     /* Art der Stelle */
     private String artDerStelle;
     private String einsqtzort;
     private String[] berufsfeld;
     private String umfang;
+    private String strasse;
+    private String PLZ;
+
+    public String getPLZ() {
+        return PLZ;
+    }
+
+    public void setPLZ(String PLZ) {
+        this.PLZ = PLZ;
+    }
+
+    public String getStrasse() {
+        return strasse;
+    }
+
+    public void setStrasse(String strasse) {
+        this.strasse = strasse;
+    }
+
+    public String getAnschreibenZurStelle() {
+        return anschreibenZurStelle;
+    }
+
+    public void setAnschreibenZurStelle(String anschreibenZurStelle) {
+        this.anschreibenZurStelle = anschreibenZurStelle;
+    }
 
     /* Aufgabengebiet */
     private String aufgabengebiet;
