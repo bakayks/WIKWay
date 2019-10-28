@@ -1,11 +1,18 @@
 package de.fh_zwickau.WIKWay;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -15,10 +22,9 @@ import java.util.ArrayList;
 
 import de.fh_zwickau.WIKWay.adapters.MyAdapter;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private String TAG = MainActivity.class.getSimpleName();
-
     private ProgressDialog pDialog;
     private ListView lv;
 
@@ -33,11 +39,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         jobArrayList = new ArrayList<>();
-
         lv = (ListView) findViewById(R.id.list);
-
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Job itemChosen = (Job) parent.getItemAtPosition(position);
+                Intent intent = new Intent(MainActivity.this, MoreInfoActivity.class);
+                intent.putExtra("art der stelle", itemChosen.getAnsprechpartner());
+                intent.putExtra("bezeichnung der stelle", itemChosen.getBezeichnungderStelle());
+                intent.putExtra("email", itemChosen.getKontaktZuBewerben());
+                intent.putExtra("url", itemChosen.getURLImage());
+                intent.putExtra("bewerberkontakt firma", itemChosen.getBewerbenkontakt());
+                intent.putExtra("anschreiben", itemChosen.getAnschreibenZurStelle());
+                intent.putExtra("einsatzort", itemChosen.getEinsqtzort());
+                intent.putExtra("umfang", itemChosen.getUmfang());
+                intent.putExtra("aufgabengebiet", itemChosen.getAufgabengebiet());
+                intent.putExtra("abteilung", itemChosen.getAbteilung());
+                intent.putExtra("ansprechpartner", itemChosen.getAnsprechpartner());
+                intent.putExtra("ort", itemChosen.getORT());
+                intent.putExtra("strasse", itemChosen.getStrasse());
+                intent.putExtra("PLZ", itemChosen.getPLZ());
+                startActivity(intent);
+            }
+        });
         new GetContacts().execute();
     }
+
 
     /**
      * Async task class to get json by making HTTP call
@@ -78,13 +105,30 @@ public class MainActivity extends AppCompatActivity {
                         String email = c.getString("E-Mail");
                         String url = c.getString("Logo");
                         String bewerberkontakt_firma = c.getString("Bewerberkontakt Firma");
-
+                        String anschreiben = c.getString("Anschreiben zur Stelle");
+                        String einsatzort = c.getString("Einsatzort");
+                        String umfang = c.getString("Umfang");
+                        String aufgabengebiet = c.getString("Aufgabengebiet");
+                        String abteilung = c.getString("Abteilung");
+                        String ansprechpartner = c.getString("Ansprechpartner");
+                        String ort = c.getString("Ort");
+                        String strasse = c.getString("Straße");
+                        String PLZ = c.getString("PLZ");
                         Job job = new Job();
                         job.setArtDerStelle(art_der_stelle);
                         job.setBezeichnungderStelle(bezeichnung_der_stelle);
                         job.setKontaktZuBewerben(email);
                         job.setBewerbenkontaktfirma(bewerberkontakt_firma);
+                        job.setAnschreibenZurStelle(anschreiben);
+                        job.setEinsqtzort(einsatzort);
+                        job.setUmfang(umfang);
+                        job.setAufgabengebiet(aufgabengebiet);
+                        job.setAbteilung(abteilung);
+                        job.setAnsprechpartner(ansprechpartner);
                         job.setURLImage(url);
+                        job.setORT(ort);
+                        job.setStrasse(strasse);
+                        job.setPLZ(PLZ);
 //                        contact.put("mobile", mobile);
 
                         // adding contact to contact list

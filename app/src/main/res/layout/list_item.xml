@@ -8,7 +8,6 @@
         android:layout_width="100dp"
         android:layout_height="120dp"
         android:id="@+id/imageView"
-        android:src="@drawable/wikgroup"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginStart="5dp"
