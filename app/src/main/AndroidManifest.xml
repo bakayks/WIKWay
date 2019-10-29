@@ -8,14 +8,14 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="de.fh_zwickau.WIKWay.MainActivity" >
+        <activity android:name="de.fh_zwickau.WIKWay.activities.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="de.fh_zwickau.WIKWay.MoreInfoActivity" />
+        <activity android:name="de.fh_zwickau.WIKWay.activities.MoreInfoActivity" />
     </application>
 
 </manifest>

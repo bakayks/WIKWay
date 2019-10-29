@@ -1,6 +1,16 @@
 package de.fh_zwickau.WIKWay;
 
 public class Job {
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     private String bewerbenkontaktfirma;
     private String bezeichnungderStelle;
     private String anschreibenZurStelle;
